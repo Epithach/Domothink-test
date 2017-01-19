@@ -1,22 +1,24 @@
 var request = require('request');
 
+
+var apiPath = 'http://127.0.0.1:4242';
+var storePath = 'http://127.0.0.1:8081';
+var token = '"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOiIyMDE3LTAxLTIxVDEzOjA3OjMyLjUwOFoiLCJ1c2VybmFtZSI6InRlc3QifQ.fGKcoVsCI5OTtRQszUzNJ43YhoiTE-b6cMtr9hWTBK4';
+
+
 /**
 *
 * LOGIN
 *
 */
 
-/*
-request.post({url:'http://127.0.0.1:4242/login', headers: {'content-type': 'application/json'}, body: JSON.stringify({ login: 'test', password: 'test'})}
+request.post({url: (apiPath + '/login'), headers: {'content-type': 'application/json'}, body: JSON.stringify({ login: 'test', password: 'test'})}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
 		     return console.error('upload failed:', err);
 		 }
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
-*/
-
-var token = '"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOiIyMDE3LTAxLTIxVDEzOjA3OjMyLjUwOFoiLCJ1c2VybmFtZSI6InRlc3QifQ.fGKcoVsCI5OTtRQszUzNJ43YhoiTE-b6cMtr9hWTBK4';
 
 /**
 *
@@ -24,8 +26,7 @@ var token = '"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOiIyMDE3LTAxLTIxVDEzO
 *
 */
 
-/*
-request.post({url:'http://127.0.0.1:4242/devices', headers: {'content-type': 'application/json', 'login-token': token
+request.post({url: (apiPath + '/devices'), headers: {'content-type': 'application/json', 'login-token': token
 							    }, body: JSON.stringify({ name: 'test', description: 'test', protocole: 'test', status: '1' })}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
@@ -34,8 +35,7 @@ request.post({url:'http://127.0.0.1:4242/devices', headers: {'content-type': 'ap
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-
-request.put({url:'http://127.0.0.1:4242/devices', headers: {'content-type': 'application/json', 'login-token': token },
+request.put({url: (apiPath + '/devices'), headers: {'content-type': 'application/json', 'login-token': token },
 	     body: JSON.stringify({ idDevice: 35458, name: 'test', description: 'UPDATE', protocol: 'test', status: '1' })}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
@@ -44,9 +44,7 @@ request.put({url:'http://127.0.0.1:4242/devices', headers: {'content-type': 'app
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-
-
-request.delete({url:'http://127.0.0.1:4242/devices/35458', headers: {'content-type': 'application/json', 'login-token': token }}
+request.delete({url: (apiPath + '/devices/35458'), headers: {'content-type': 'application/json', 'login-token': token }}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
 		     return console.error('upload failed:', err);
@@ -54,22 +52,21 @@ request.delete({url:'http://127.0.0.1:4242/devices/35458', headers: {'content-ty
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-request.get({ url:'http://127.0.0.1:4242/devices', headers: {'content-type': 'application/json', 'login-token': token }}, function optionalCallback(err, httpResponse, body) {
+request.get({ url: (apiPath + '/devices'), headers: {'content-type': 'application/json', 'login-token': token }}, function optionalCallback(err, httpResponse, body) {
     if (err) {
 	return console.error('upload failed:', err);
     }
     console.log('Upload successful!  Server responded with:', body);
 });
-*/
 
 /**
-*
-* DIRECTIVES
-*
-*/
+ *
+ * DIRECTIVES
+ *
+ */
 
-/*
-request.post({url:'http://127.0.0.1:4242/directives', headers: {'content-type': 'application/json', 'login-token': token
+
+request.post({url: (apiPath + '/directives'), headers: {'content-type': 'application/json', 'login-token': token
 							       }, body: JSON.stringify({ name: 'test'
 											 , creatorId: 1
 											 , deviceId: 1
@@ -84,9 +81,7 @@ request.post({url:'http://127.0.0.1:4242/directives', headers: {'content-type': 
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-
-
-request.put({url:'http://127.0.0.1:4242/directives', headers: {'content-type': 'application/json', 'login-token': token },
+request.put({url: (apiPath + '/directives'), headers: {'content-type': 'application/json', 'login-token': token },
 	      body: JSON.stringify({ idDirective: 32, name: 'new' })}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
@@ -95,8 +90,7 @@ request.put({url:'http://127.0.0.1:4242/directives', headers: {'content-type': '
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-
-request.delete({url:'http://127.0.0.1:4242/directives/32', headers: {'content-type': 'application/json', 'login-token': token }}
+request.delete({url: (apiPath + '/directives/32'), headers: {'content-type': 'application/json', 'login-token': token }}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
 		     return console.error('upload failed:', err);
@@ -104,14 +98,13 @@ request.delete({url:'http://127.0.0.1:4242/directives/32', headers: {'content-ty
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-request.get({url:'http://127.0.0.1:4242/directives', headers: {'content-type': 'application/json', 'login-token': token }}
+request.get({url: (apiPath + '/directives'), headers: {'content-type': 'application/json', 'login-token': token }}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
 		     return console.error('upload failed:', err);
 		 }
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
-*/
 
 /**
 *
@@ -119,8 +112,8 @@ request.get({url:'http://127.0.0.1:4242/directives', headers: {'content-type': '
 *
 */
 
-/*
-request.post({url:'http://127.0.0.1:4242/plugins/install', headers: {'content-type': 'application/json', 'login-token': token
+
+request.post({url: (apiPath + '/plugins/install'), headers: {'content-type': 'application/json', 'login-token': token
 							    }, body: JSON.stringify({ name: 'CACA'
 										      , status: true
 										      , repository: 'https://github.com/epithach/ember-test.git'
@@ -134,7 +127,7 @@ request.post({url:'http://127.0.0.1:4242/plugins/install', headers: {'content-ty
 
 
 
-request.delete({url:'http://127.0.0.1:4242/plugins/uninstall/0', headers: {'content-type': 'application/json', 'login-token': token }}
+request.delete({url: (apiPath + '/plugins/uninstall/0'), headers: {'content-type': 'application/json', 'login-token': token }}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
 		     return console.error('upload failed:', err);
@@ -143,23 +136,21 @@ request.delete({url:'http://127.0.0.1:4242/plugins/uninstall/0', headers: {'cont
 	     });
 
 
-request.get({url:'http://127.0.0.1:4242/plugins', headers: {'content-type': 'application/json', 'login-token': token }}
+request.get({url: (apiPath + '/plugins'), headers: {'content-type': 'application/json', 'login-token': token }}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
 		     return console.error('upload failed:', err);
 		 }
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
-
-*/
 
 /*
  * USER
  *
  */
 
-/*
-request.post({url:'http://127.0.0.1:4242/create_account', headers: {'content-type': 'application/json', 'login-token': token
+
+request.post({url: (apiPath + '/create_account'), headers: {'content-type': 'application/json', 'login-token': token
 								   }, body: JSON.stringify({ login: 'antoine'
 											     , password: 'antoine'
 											     , confirmPassword: 'antoine'
@@ -171,7 +162,7 @@ request.post({url:'http://127.0.0.1:4242/create_account', headers: {'content-typ
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-request.post({url:'http://127.0.0.1:4242/change_password', headers: {'content-type': 'application/json', 'login-token': token
+request.post({url: (apiPath + '/change_password'), headers: {'content-type': 'application/json', 'login-token': token
 								   }, body: JSON.stringify({ userId: 1
 											     , oldpassword: 'antoine'
 											     , newPassword: 'antoine'
@@ -183,8 +174,7 @@ request.post({url:'http://127.0.0.1:4242/change_password', headers: {'content-ty
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-
-request.post({url:'http://127.0.0.1:4242/logout', headers: {'content-type': 'application/json', 'login-token': token
+request.post({url: (apiPath + '/logout'), headers: {'content-type': 'application/json', 'login-token': token
 								   }, body: JSON.stringify({ token: token  })}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
@@ -192,8 +182,6 @@ request.post({url:'http://127.0.0.1:4242/logout', headers: {'content-type': 'app
 		 }
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
-*/
-
 
 /**
  *
@@ -201,9 +189,7 @@ request.post({url:'http://127.0.0.1:4242/logout', headers: {'content-type': 'app
  *
  */
 
-
-/*
-request.post({url:'http://127.0.0.1:8081/store', headers: {'content-type': 'application/json', 'login-token': token
+request.post({url: (storePath + '/store'), headers: {'content-type': 'application/json', 'login-token': token
 							  }, body: JSON.stringify({ name: 'ANTOINE'
 										    , repository: 'https://github.com/epithach/muzistream'
 										    , language: 'ANTOINE'
@@ -215,8 +201,7 @@ request.post({url:'http://127.0.0.1:8081/store', headers: {'content-type': 'appl
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-
-request.delete({url:'http://127.0.0.1:8081/store', headers: {'content-type': 'application/json', 'login-token': token
+request.delete({url: (storePath + '/store'), headers: {'content-type': 'application/json', 'login-token': token
 							  }, body: JSON.stringify({ idPlugin: 14
 										    , keyLoginHash: 'ANTOINE'})}
 	     , function optionalCallback(err, httpResponse, body) {
@@ -228,7 +213,7 @@ request.delete({url:'http://127.0.0.1:8081/store', headers: {'content-type': 'ap
 
 
 
-request.get({url:'http://127.0.0.1:8081/store', headers: {'content-type': 'application/json' }}
+request.get({url: (storePath + '/store'), headers: {'content-type': 'application/json' }}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
 		     return console.error('upload failed:', err);
@@ -236,18 +221,21 @@ request.get({url:'http://127.0.0.1:8081/store', headers: {'content-type': 'appli
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-request.get({url:'http://127.0.0.1:8081/store/12', headers: {'content-type': 'application/json' }}
+request.get({url: (storePath + '/store/12'), headers: {'content-type': 'application/json' }}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
 		     return console.error('upload failed:', err);
 		 }
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
-*/
 
+/**
+ *
+ * StoreComments
+ *
+ */
 
-/*
-request.post({url:'http://127.0.0.1:8081/store/12/comments', headers: {'content-type': 'application/json'
+request.post({url: (storePath + '/store/12/comments'), headers: {'content-type': 'application/json'
 							    }, body: JSON.stringify({ author: 'ANTOINE'
 										      , rate: '5'
 										      , comment: 'Comment'
@@ -261,7 +249,7 @@ request.post({url:'http://127.0.0.1:8081/store/12/comments', headers: {'content-
 
 
 
-request.put({url:'http://127.0.0.1:8081/store/comments', headers: {'content-type': 'application/json' },
+request.put({url:(storePath +  '/store/comments'), headers: {'content-type': 'application/json' },
 	     body: JSON.stringify({ idComment: 12, keyLoginHash: 'ANTOINE', comment: 'CACA' })}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
@@ -269,9 +257,9 @@ request.put({url:'http://127.0.0.1:8081/store/comments', headers: {'content-type
 		 }
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
-*/
 
-request.delete({url:'http://127.0.0.1:8081/store/comments/12', headers: {'content-type': 'application/json', 'login-token': token }}
+
+request.delete({url: (storePath + '/store/comments/12'), headers: {'content-type': 'application/json', 'login-token': token }}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
 		     return console.error('upload failed:', err);
@@ -279,7 +267,7 @@ request.delete({url:'http://127.0.0.1:8081/store/comments/12', headers: {'conten
 		 console.log('Upload successful!  Server responded with:', body);
 	     });
 
-request.get({url:'http://127.0.0.1:8081/store/12/comments', headers: {'content-type': 'application/json' }}
+request.get({url: (commentStorePath + '/store/12/comments'), headers: {'content-type': 'application/json' }}
 	     , function optionalCallback(err, httpResponse, body) {
 		 if (err) {
 		     return console.error('upload failed:', err);
